@@ -1,0 +1,48 @@
+{
+  "expo": {
+    "name": "B-Event Tickets",
+    "slug": "b-event-tickets",
+    "owner": "b-event",
+    "version": "0.1.2",
+    "orientation": "portrait",
+    "icon": "./src/assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./src/assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#3f3923"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.balezigroup.beventticket",
+      "buildNumber": "4"
+    },
+    "android": {
+      "versionCode": 3,
+      "permissions": ["RECEIVE_BOOT_COMPLETED"],
+      "adaptiveIcon": {
+        "foregroundImage": "./src/assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.balezi_group.beventticket"
+    },
+    "web": {
+      "favicon": "./src/assets/favicon.png"
+    },
+    "description": "Un groupe qui œuvre dans le Marketing digital et vente de billets",
+    "extra": {
+      "eas": {
+        "projectId": "cd7729d7-8ccf-42d6-a66f-83372939a89e"
+      }
+    },
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "L'application accède à vos photos pour vous permettre de changer votre photo de profile."
+        }
+      ]
+    ]
+  }
+}

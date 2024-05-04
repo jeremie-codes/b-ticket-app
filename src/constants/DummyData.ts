@@ -1,0 +1,161 @@
+import { EventType } from "src/screens/HomeScreen";
+
+export const EVENTS: EventType[] = [
+  {
+    id: 1,
+    title: "Learn Graphic Design From",
+    image:
+      "https://img.freepik.com/psd-gratuit/modele-banniere-festival-musique_23-2148911144.jpg?w=1380&t=st=1684739022~exp=1684739622~hmac=6bf95c58ab2f10fe45322b7bfc0e160714075213b51c719870e430d1e209b082",
+    date: "2023-06-15",
+    start_hour: "18:00",
+    end_hour: "23:00",
+    author_name: "John Doe",
+    description: "Join us for a night of live music and entertainment.",
+    authImage: "https://example.com/images/john-doe.jpg",
+    price: "$20",
+    location: "Central Park, New York City",
+    category: "Music",
+  },
+  {
+    id: 2,
+    title: "Art Exhibition",
+    image:
+      "https://img.freepik.com/psd-gratuit/conception-modele-banniere-evenement_23-2149231979.jpg?w=1380&t=st=1684739043~exp=1684739643~hmac=b483137dac440f3fb76f18142cd07121ef950ab5c6ede6d5cfee19b67a854c18",
+    date: "2023-07-10",
+    start_hour: "10:00",
+    end_hour: "16:00",
+    author_name: "Jane Smith",
+    description: "Explore the beauty of contemporary art.",
+    authImage: "https://example.com/images/jane-smith.jpg",
+    price: "Free",
+    location: "Gallery XYZ, Los Angeles",
+    category: "Art",
+  },
+  {
+    id: 3,
+    title: "Fitness Workshop",
+    image:
+      "https://img.freepik.com/psd-gratuit/banniere-annee-internationale-economie-creative-pour-developpement-durable_23-2148866446.jpg?w=1380&t=st=1684739061~exp=1684739661~hmac=26eb9240a41fc240bb642ebde23d5e8e0cfcd7e4162b45b3947058cf2d6ad985",
+    date: "2023-08-05",
+    start_hour: "14:00",
+    end_hour: "16:30",
+    author_name: "Mike Johnson",
+    description: "Learn new exercises and stay fit.",
+    authImage: "https://example.com/images/mike-johnson.jpg",
+    price: "$10",
+    location: "Fitness Studio ABC, Miami",
+    category: "Fitness",
+  },
+  // Event 4
+  {
+    id: 4,
+    title: "Food Festival",
+    image:
+      "https://img.freepik.com/psd-gratuit/modele-banniere-festival-musique_23-2148911143.jpg?w=1380&t=st=1684739080~exp=1684739680~hmac=7841ea3d5177ba81d36a978b942d53601a71f4920c246c8af551cf9c87ef79f5",
+    date: "2023-09-20",
+    start_hour: "12:00",
+    end_hour: "20:00",
+    author_name: "Sarah Thompson",
+    description: "Experience the best cuisines from around the world.",
+    authImage: "https://example.com/images/sarah-thompson.jpg",
+    price: "$15",
+    location: "City Park, Chicago",
+    category: "Food",
+  },
+  // Event 5
+  {
+    id: 5,
+    title: "Tech Conference",
+    image:
+      "https://img.freepik.com/psd-gratuit/modele-banniere-novembre-bleu_23-2149194070.jpg?w=1380&t=st=1684739097~exp=1684739697~hmac=9405f4158f76ae7bcd72cf654e8bb8ddbfbd728f640a3c7c005569916e7f993e",
+    date: "2023-10-08",
+    start_hour: "09:00",
+    end_hour: "18:00",
+    author_name: "Alex Davis",
+    description: "Discover the latest trends in technology and innovation.",
+    authImage: "https://example.com/images/alex-davis.jpg",
+    price: "$50",
+    location: "Convention Center, San Francisco",
+    category: "Technology",
+  },
+  // Event 6
+  {
+    id: 6,
+    title: "Film Screening",
+    image:
+      "https://img.freepik.com/psd-gratuit/modele-banniere-concept-musique-fete_23-2148641774.jpg?w=1380&t=st=1684739115~exp=1684739715~hmac=208b073d8f4aa27f3d1c21d5adf761610b3451a0b6cc81a54d41c486c36c7f8e",
+    date: "2023-11-15",
+    start_hour: "19:30",
+    end_hour: "22:30",
+    author_name: "Emily Wilson",
+    description: "Watch an award-winning film with fellow movie enthusiasts.",
+    authImage: "https://example.com/images/emily-wilson.jpg",
+    price: "$12",
+    location: "Cinema Theater, London",
+    category: "Film",
+  },
+  // Event 7
+  {
+    id: 7,
+    title: "Charity Gala",
+    image:
+      "https://img.freepik.com/psd-gratuit/dj-party-woman-banniere-casque_23-2148623858.jpg?w=1380&t=st=1684739142~exp=1684739742~hmac=2d10a6772edaea26d84ef323970f746aa2b183c1a5076e376e6caaf228678a3e",
+    date: "2023-12-05",
+    start_hour: "18:30",
+    end_hour: "23:00",
+    author_name: "David Rodriguez",
+    description: "Support a good cause and enjoy an elegant evening.",
+    authImage: "https://example.com/images/david-rodriguez.jpg",
+    price: "$100",
+    location: "Grand Ballroom, Paris",
+    category: "Charity",
+  },
+  // Event 8
+  {
+    id: 8,
+    title: "Fashion Show",
+    image:
+      "https://img.freepik.com/psd-gratuit/modele-banniere-concept-conference-commerciale_23-2148640907.jpg?w=1380&t=st=1684739159~exp=1684739759~hmac=85364c8132bbdc7d014308bf2be29ad70919247cb503d511104f8d49426b40f7",
+    date: "2024-01-20",
+    start_hour: "20:00",
+    end_hour: "22:00",
+    author_name: "Sophia Brown",
+    description: "Witness the latest fashion trends on the runway.",
+    authImage: "https://example.com/images/sophia-brown.jpg",
+    price: "$30",
+    location: "Fashion Venue, Milan",
+    category: "Fashion",
+  },
+  // Event 9
+  {
+    id: 9,
+    title: "Startup Workshop",
+    image:
+      "https://img.freepik.com/psd-gratuit/modele-banniere-concept-fete-musicale_23-2148512225.jpg?w=1380&t=st=1684739179~exp=1684739779~hmac=7e7d6a523b1d88cc46fb59e3fd73426b4d0e3a4356608103d475e559d9b1e5e9",
+    date: "2024-02-12",
+    start_hour: "13:00",
+    end_hour: "17:00",
+    author_name: "Mark Taylor",
+    description: "Learn how to start and grow your own business.",
+    authImage: "https://example.com/images/mark-taylor.jpg",
+    price: "$25",
+    location: "Business Hub, Sydney",
+    category: "Business",
+  },
+  // Event 10
+  {
+    id: 10,
+    title: "Yoga Retreat",
+    image:
+      "https://img.freepik.com/psd-gratuit/modele-banniere-concert-jazz_23-2149016097.jpg?w=1380&t=st=1684739194~exp=1684739794~hmac=92572a4245ed2d3bf75f4030dc45c3a53c297f872b12d68eefe777610558ae4f",
+    date: "2024-03-08",
+    start_hour: "08:00",
+    end_hour: "18:00",
+    author_name: "Emma Green",
+    description: "Relax and rejuvenate with a day of yoga and meditation.",
+    authImage: "https://example.com/images/emma-green.jpg",
+    price: "$40",
+    location: "Retreat Center, Bali",
+    category: "Wellness",
+  },
+];
