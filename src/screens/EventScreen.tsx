@@ -64,6 +64,7 @@ export const EventScreen = ({ navigation, route }: EventScreenProps) => {
     },
   });
 
+
   const event: EventType = data?.data || {};
 
   const { filePath } = useLoadImage(event!, 600);
@@ -71,6 +72,7 @@ export const EventScreen = ({ navigation, route }: EventScreenProps) => {
   const { filePath: authImage } = useLoadImage(event!, 200, 0);
 
   React.useLayoutEffect(() => {
+
     navigation.setOptions({
       headerShadowVisible: false,
       headerTitle: "Détails de l'événement",
@@ -90,6 +92,7 @@ export const EventScreen = ({ navigation, route }: EventScreenProps) => {
 
       headerRight: () => <FavoriteIcon event={event} />,
     });
+
   }, [navigation, event]);
 
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
@@ -97,6 +100,7 @@ export const EventScreen = ({ navigation, route }: EventScreenProps) => {
 
   const handlePresentModal = () => {
     setModalIsOpen(true);
+    // console.log(bottomSheetModalRef.current)
     bottomSheetModalRef.current?.present();
   };
 
@@ -144,13 +148,13 @@ export const EventScreen = ({ navigation, route }: EventScreenProps) => {
       )}
       {!isLoading && data?.success && (
         <React.Fragment>
-          <ConfirmModal
-            handleClosePress={handleClosePress}
-            bottomSheetModalRef={bottomSheetModalRef}
-            price={activePrice}
-            event={event}
-            onCheckoutPress={handleCheckoutPress}
-          />
+            <ConfirmModal
+              handleClosePress={handleClosePress}
+              bottomSheetModalRef={bottomSheetModalRef}
+              price={activePrice}
+              event={event}
+              onCheckoutPress={handleCheckoutPress}
+              />
 
           <ScrollView
             showsVerticalScrollIndicator={false}
@@ -165,7 +169,7 @@ export const EventScreen = ({ navigation, route }: EventScreenProps) => {
 
                 <AppTextLeading style={styles.eventTitle}>
                   {event.title}
-                </AppTextLeading>
+                </AppTextLeading> 
                 <View style={styles.metadatItemContainer}>
                   <AppIcon
                     type="ionicons"

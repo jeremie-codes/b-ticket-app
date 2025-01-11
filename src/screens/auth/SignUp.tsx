@@ -76,46 +76,6 @@ export const SignUp: React.FC<GuestStackProps> = ({
             <HeaderTitle style={{ paddingTop: verticalScale(SIZES.base) }}>
               S'inscrire
             </HeaderTitle>
-          {/*   <View>
-              <View style={styles.socialTop}>
-                <View>
-                  <AppButton
-                    icon={{
-                      name: "facebook-with-circle",
-                      type: "entypo",
-                      size: moderateScale(22),
-                      color: defaultTheme.PRIMARY_TEXT_COLOR,
-                    }}
-                    backgroundColor={defaultTheme.FACEBOOK_BACKGROUND_COLOR}
-                  >
-                    Continuer avec Facebook
-                  </AppButton>
-                </View>
-                <View style={styles.topSocialTextContainer}>
-                  <AppTextBody style={styles.topSocialText}>
-                    Inscrivez-vous avec Facebook pour connaître les événements
-                    auxquels vos amis participent.
-                  </AppTextBody>
-                </View>
-              </View>
-              <View>
-                <LoginSocialSeparator />
-              </View>
-              <View style={styles.socialBottomContainer}>
-                <AppButton
-                  icon={{
-                    name: "logo-google",
-                    type: "ionicons",
-                    size: moderateScale(22),
-                    color: defaultTheme.GOOGLE_ICON_COLOR,
-                  }}
-                  backgroundColor={defaultTheme.GOOGLE_BACKGROUND_COLOR}
-                  textColor={defaultTheme.GOOGLE_TEXT_COLOR}
-                >
-                  Continuer avec Google
-                </AppButton>
-              </View>
-            </View> */}
           </View>
           <View style={styles.formContainer}>
             <View>

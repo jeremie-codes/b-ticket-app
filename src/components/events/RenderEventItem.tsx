@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { StyleSheet, View } from "react-native";
 import { SIZES } from "src/constants/App";
 import {
@@ -26,6 +27,7 @@ export const RenderEventItem = ({
 }) => {
   const { filePath } = useLoadImage(item, 500);
   const { filePath: thumbnailSource } = useLoadImage(item, 100);
+
   return (
     <React.Fragment>
       <ClickableWrapper onPress={onPress} style={styles.eventContainer}>

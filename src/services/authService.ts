@@ -31,7 +31,7 @@ export const Auth = {
 
   register: async (registerData: RegisterData, withNotification = false) => {
     // Make API call to authenticate user
-    const { data } = await http.post(endpoints.signup, {
+    const { data } = await http.post('https://b-tickets-app.com/api/register', {
       ...registerData,
     });
 
@@ -51,12 +51,13 @@ export const Auth = {
       JSON.stringify({ ...user, token: data.data.token })
     );
 
+
     return data;
   },
 
   forgot: async (passwordData: PasswordResetType, withNotification = false) => {
     // Make API call to authenticate user
-    const { data } = await http.post(endpoints.forgot, {
+    const { data } = await http.post('https://b-tickets-app.com/api', {
       ...passwordData,
     });
 

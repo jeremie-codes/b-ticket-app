@@ -1,8 +1,8 @@
 const endpoints = {
   logout: "/logout",
-  login: "/auth/login",
-  signup: "/auth/register",
-  forgot: "/auth/forgot",
+  login: "/login",
+  signup: "/register",
+  forgot: "/forgot",
   deleteUser: "/account/delete",
 
   profile: "/profile",

@@ -1,4 +1,5 @@
-import { FlatList, SectionList, StyleSheet, View } from "react-native";
+import { useState } from 'react'
+import { Text, FlatList, SectionList, StyleSheet, View, Image } from "react-native";
 import AppWrapper from "src/components/AppWrapper";
 import {
   horizontalScale,
@@ -29,7 +30,7 @@ import { User } from "src/services/userService";
 export const HomeScreen = ({ navigation }: HomeScreenProps) => {
   const { toggleLoading } = useContext(OverlayLoadingContext);
   const { dispatch } = useContext(AuthContext);
-
+  const [isRefreshing, setIsRefreshing] = useState(false)
   const { state } = useContext(AuthContext);
 
   const {
@@ -121,6 +122,12 @@ export const HomeScreen = ({ navigation }: HomeScreenProps) => {
     },
   });
 
+  const onRefresh = async () => {
+    setIsRefreshing(true);
+    await refetch(); // Force une nouvelle requête
+    setIsRefreshing(false);
+  };
+
   return (
     <AppWrapper>
       {!isFetching && !isLoading && !groupEvents?.success && (
@@ -132,21 +139,10 @@ export const HomeScreen = ({ navigation }: HomeScreenProps) => {
           subtitle={state.user?.name}
           image={
             <ClickableWrapper onPress={handleProfilePress}>
-              {state.user?.profile?.picture ? (
-                <AccountAvatarPhoto
-                  uri={(API_URL + state.user?.profile?.picture).replace(
-                    "/api",
-                    "/"
-                  )}
-                  style={styles.headerRightIcon}
+                <Image
+                  source={require("../assets/logo.png")}
+                style={{ width: 60, height: 40 }}
                 />
-              ) : (
-                <AccountAvatarPhoto
-                  uri={require("../assets/img/user.png")}
-                  style={styles.headerRightIcon}
-                  local={true}
-                />
-              )}
             </ClickableWrapper>
           }
         />
@@ -157,6 +153,8 @@ export const HomeScreen = ({ navigation }: HomeScreenProps) => {
           showsVerticalScrollIndicator={false}
           stickySectionHeadersEnabled={false}
           sections={realData}
+          refreshing={isRefreshing}
+          onRefresh={onRefresh}
           contentContainerStyle={{ paddingBottom: verticalScale(10) }}
           renderSectionHeader={({ section }) => (
             <>

@@ -7,6 +7,7 @@ import { GuestNavigator } from "src/navigation/GuestNavigator";
 import { ProtectedNavigator } from "src/navigation/ProtectedNavigator";
 import { defaultTheme } from "src/themes";
 import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 export function AppNavigator() {
   const { state } = useContext(AuthContext);
@@ -21,11 +22,13 @@ export function AppNavigator() {
   };
 
   return (
-    <BottomSheetModalProvider>
-      <NavigationContainer theme={MyTheme}>
-        {state.isAuthenticated ? <ProtectedNavigator /> : <GuestNavigator />}
-      </NavigationContainer>
-      {loading && <LoadingOverlay />}
-    </BottomSheetModalProvider>
+      <GestureHandlerRootView>
+        <BottomSheetModalProvider>
+            <NavigationContainer theme={MyTheme}>
+              {state.isAuthenticated ? <ProtectedNavigator /> : <GuestNavigator />}
+            </NavigationContainer>
+            {loading && <LoadingOverlay />}
+        </BottomSheetModalProvider>
+      </GestureHandlerRootView>
   );
 }

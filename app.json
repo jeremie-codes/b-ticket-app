@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "B-Event Tickets",
-    "slug": "b-event-tickets",
-    "owner": "b-event",
+    "name": "B-TICKETS",
+    "slug": "b-tickets",
+    "owner": "willyam",
     "version": "0.1.2",
     "orientation": "portrait",
     "icon": "./src/assets/icon.png",
@@ -12,20 +12,25 @@
       "resizeMode": "contain",
       "backgroundColor": "#3f3923"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.balezigroup.beventticket",
+      "bundleIdentifier": "",
       "buildNumber": "4"
     },
     "android": {
       "versionCode": 3,
-      "permissions": ["RECEIVE_BOOT_COMPLETED"],
+      "permissions": [
+        "android.permission.RECEIVE_BOOT_COMPLETED",
+        "android.permission.RECORD_AUDIO"
+      ],
       "adaptiveIcon": {
         "foregroundImage": "./src/assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.balezi_group.beventticket"
+      "package": "com.mastagate.btickets"
     },
     "web": {
       "favicon": "./src/assets/favicon.png"
@@ -33,7 +38,7 @@
     "description": "Un groupe qui œuvre dans le Marketing digital et vente de billets",
     "extra": {
       "eas": {
-        "projectId": "cd7729d7-8ccf-42d6-a66f-83372939a89e"
+        "projectId": "d03906e3-1851-4c52-a631-53573ddd2825"
       }
     },
     "plugins": [

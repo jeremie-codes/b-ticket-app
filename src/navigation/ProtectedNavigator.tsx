@@ -86,10 +86,10 @@ function Home() {
 
           switch (route.name) {
             case "Home":
-              iconName = focused ? "md-home-sharp" : "md-home-outline";
+              iconName = focused ? "home-sharp" : "home-outline";
               break;
             case "Search":
-              iconName = focused ? "md-search" : "md-search";
+              iconName = focused ? "search" : "search";
               break;
             case "Tickets":
               iconName = focused

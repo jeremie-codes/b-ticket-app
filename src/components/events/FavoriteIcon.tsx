@@ -18,6 +18,7 @@ export const FavoriteIcon: React.FC<{ event: EventType }> = ({ event }) => {
   const [isFavorite, setIsFavorite] = useState<boolean>(false);
   useEffect(() => {
     setIsFavorite(event.is_favorite ?? false);
+    // console.log('enement : ', event.is_favorite)
   }, [event.is_favorite]);
 
   const { mutateAsync: addToFavorite } = useMutation({

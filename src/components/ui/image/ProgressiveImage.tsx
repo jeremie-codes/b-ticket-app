@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import {
   ImageStyle,
   StyleSheet,
@@ -19,6 +19,7 @@ export const ProgressiveImage = ({
 }) => {
   const thumbnailAnimated = useRef(new Animated.Value(0)).current;
   const imageAnimated = useRef(new Animated.Value(0)).current;
+  const [image, setImage] = useState({});
 
   const handleThumbnailLoad = () => {
     Animated.timing(thumbnailAnimated, {
@@ -26,6 +27,10 @@ export const ProgressiveImage = ({
       useNativeDriver: true,
     }).start();
   };
+
+  useEffect(() => {
+    console.log(thumbnailSource)
+  })
 
   const onImageLoad = () => {
     Animated.timing(imageAnimated, {

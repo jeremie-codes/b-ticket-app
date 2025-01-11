@@ -13,6 +13,7 @@ export const EventImage: React.FC<EventImageType> = ({
   thumbnailSource,
   style,
 }) => {
+
   return (
     <React.Fragment>
       <ProgressiveImage

@@ -14,7 +14,7 @@ export const Event = {
     const headers = { Authorization: "Bearer " + user?.token! };
 
     const { data } = await http.get(
-      `${endpoints.allEvents}?search=${search}&period=${period}&page=${page}`,
+      `https://b-tickets-app.com/api/events?search=${search}&period=${period}&page=${page}`,
       { headers }
     );
 
@@ -31,7 +31,7 @@ export const Event = {
   recents: async (withNotification = false) => {
     const user = await loadUserFromStorage();
     const headers = { Authorization: "Bearer " + user?.token! };
-    const { data } = await http.get(endpoints.recents, { headers });
+    const { data } = await http.get('https://b-tickets-app.com/api/events/recents', { headers });
 
     if (!data.success && withNotification) {
       AppNotification.simple(data.message, "error");
@@ -70,10 +70,11 @@ export const Event = {
 
     return data;
   },
-  getOne: async (eventId: number, withNotification = false) => {
+  getOne: async (eventId: number, withNotification = false, userId = null) => {
+    // console.log('id du user',userId)
     const user = await loadUserFromStorage();
     const headers = { Authorization: "Bearer " + user?.token! };
-    const { data } = await http.get(`${endpoints.getEvent}${eventId}`, {
+    const { data } = await http.get(`${endpoints.getEvent}${eventId}/${userId}`, {
       headers,
     });
 
@@ -84,6 +85,7 @@ export const Event = {
       }
     }
 
+    // console.log(data)
     return data;
   },
 };

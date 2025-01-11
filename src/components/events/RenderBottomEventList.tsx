@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { StyleSheet, View } from "react-native";
 import {
   horizontalScale,
@@ -16,13 +17,7 @@ import { displayedAmount } from "src/utils/Currency";
 import { formatDateFr } from "src/utils/Date";
 import { EventImage } from "src/components/events/EventImage";
 
-export const RenderBottomEventList = ({
-  item,
-  onPress,
-}: {
-  item: EventType;
-  onPress?: () => void;
-}) => {
+export const RenderBottomEventList = ({ item, onPress, }: { item: EventType; onPress?: () => void; }) => {
   const { filePath } = useLoadImage(item, 350);
   const { filePath: thumbnailSource } = useLoadImage(item, 50);
 

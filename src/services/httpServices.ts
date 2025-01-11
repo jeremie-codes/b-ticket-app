@@ -78,7 +78,7 @@ const post = async (
   data?: [] | {},
   config?: AxiosRequestConfig
 ) => {
-  await axios.get(API_CSRF_URL);
+  // await axios.get(API_CSRF_URL);
   return await axiosInstance.post(url, data, config);
 };
 

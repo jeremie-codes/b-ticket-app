@@ -9,11 +9,12 @@ type ScreenHeaderType = {
   title?: string;
   subtitle?: string;
   image?: ReactNode;
+  rightImage?: boolean;
 };
 
-export const ScreenHeader = ({ title, subtitle, image }: ScreenHeaderType) => {
+export const ScreenHeader = ({ title, subtitle, image, rightImage }: ScreenHeaderType) => {
   return (
-    <View style={styles.header}>
+    rightImage ? (<View style={styles.header}>
       <View style={styles.headerLeft}>
         <View style={styles.headerLeftTopTitle}>
           <AppTextBody style={styles.headerLeftTopTitleText}>
@@ -33,7 +34,28 @@ export const ScreenHeader = ({ title, subtitle, image }: ScreenHeaderType) => {
           <View style={styles.headerRightIconContainer}>{image}</View>
         </View>
       )}
-    </View>
+    </View>) :
+      (<View style={styles.header}>
+        {image && (
+          <View style={styles.headerRight}>
+            <View style={styles.headerRightIconContainer}>{image}</View>
+          </View>
+        )}
+      <View style={styles.headerLeft}>
+        <View style={styles.headerLeftTopTitle}>
+          <AppTextBody style={{ ...styles.headerLeftTopTitleText, textAlign: 'right' }}>
+            {title}
+          </AppTextBody>
+        </View>
+        {subtitle && (
+          <View style={styles.headerLeftBottomTitle}>
+            <AppTextBody style={{  ...styles.headerLeftBottomTitleText, textAlign: 'right' }}>
+              {subtitle}
+            </AppTextBody>
+          </View>
+        )}
+      </View>
+    </View>)
   );
 };
 

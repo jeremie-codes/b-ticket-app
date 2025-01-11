@@ -12,6 +12,9 @@ export const Ticket = {
   ) => {
     const user = await loadUserFromStorage();
     const headers = { Authorization: "Bearer " + user?.token! };
+
+    console.log(`status=${status}&page=${page}`)
+
     const { data } = await http.get(
       `${endpoints.tickets}?status=${status}&page=${page}`,
       {
