@@ -4,13 +4,25 @@
   },
   "build": {
     "development": {
-      "developmentClient": true,
-      "distribution": "internal"
+      "node": "v22.8.0",
+      "android": {
+        "buildType": "apk"
+      },
+      "ios": {
+        "simulator": true
+      }
     },
-    "preview": {
-      "distribution": "internal"
-    },
-    "production": {}
+    "production": {
+      "node": "v22.8.0",
+      "android": {
+        "buildType": "apk"
+      },
+      "env": {
+        "API_CSRF_URL": "https://b-tickets-app.com/api/csrf-token",
+        "API_URL": "https://b-tickets-app.com/api",
+        "APP_STORAGE_LINK": "https://b-tickets-app.com//storage/"
+      }
+    }
   },
   "submit": {
     "production": {}

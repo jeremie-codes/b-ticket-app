@@ -14,15 +14,15 @@ export const useLoadNormalImage = (
     const loadImage = async () => {
       if (fileNameUrl) {
         let path =
-          API_URL +
+          'https://b-tickets-app.com/' +
           `${slashPrefix ? "/" : ""}${fileNameUrl}?buster=${Math.random()}`;
-
-
-        const generatedImage = await handleResizeImage({
-          imageUrl: path.replace("/api", "/"),
-          maxWidth: maxWidth,
-        });
-        setFilePath(generatedImage);
+        
+          // const generatedImage = await handleResizeImage({
+          //   imageUrl: path.replace("/api", "/"),
+          //   maxWidth: maxWidth,
+          // });
+        // console.log(path.replace("/api", "/"))
+        setFilePath(path.replace("/api", "/"))
       }
     };
 

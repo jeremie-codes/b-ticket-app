@@ -7,7 +7,7 @@ import { loadUserFromStorage } from "src/contexts/AuthContext";
 export const Auth = {
   login: async (loginData: LoginData, withNotification = false) => {
     // Make API call to authenticate user
-    const { data } = await http.post(endpoints.login, {
+    const { data } = await http.post('https://b-tickets-app.com/api/login', {
       ...loginData,
     });
 
@@ -57,7 +57,7 @@ export const Auth = {
 
   forgot: async (passwordData: PasswordResetType, withNotification = false) => {
     // Make API call to authenticate user
-    const { data } = await http.post('https://b-tickets-app.com/api', {
+    const { data } = await http.post('https://b-tickets-app.com/api/forgot', {
       ...passwordData,
     });
 
@@ -78,7 +78,7 @@ export const Auth = {
     const user = await loadUserFromStorage();
     const headers = { Authorization: "Bearer " + user?.token! };
 
-    const { data } = await http.post(endpoints.logout, {}, { headers });
+    const { data } = await http.post('https://b-tickets-app.com/api/logout', {}, { headers });
     await AppLocalStorage.removeItem("user");
 
     if (!data.success && withNotification) {
@@ -98,7 +98,7 @@ export const Auth = {
     const user = await loadUserFromStorage();
     const headers = { Authorization: "Bearer " + user?.token! };
 
-    const { data } = await http.post(endpoints.deleteUser, {}, { headers });
+    const { data } = await http.post('https://b-tickets-app.com/api/account/delete', {}, { headers });
     await AppLocalStorage.removeItem("user");
 
     if (!data.success && withNotification) {

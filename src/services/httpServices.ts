@@ -1,12 +1,11 @@
 import axios, { AxiosError, AxiosInstance, AxiosRequestConfig } from "axios";
 import axiosRetry from "axios-retry";
 
-import { API_CSRF_URL, API_URL } from "@env";
 
 const axiosInstance: AxiosInstance = axios.create({
-  baseURL: API_URL,
+  baseURL: 'https://b-tickets-app.com/api',
   headers: { "Content-Type": "application/json" },
-  timeout: 30000,
+  timeout: 60000,
   withCredentials: true,
 });
 
@@ -16,7 +15,7 @@ axiosRetry(axiosInstance, {
   retries: REQUEST_RETRY_TIMES,
   retryDelay: axiosRetry.exponentialDelay,
   retryCondition: (error: AxiosError) => {
-    console.log("error", error);
+    console.log("error : ", error);
     return (
       (error.code !== "ECONNABORTED" &&
         (!error.response ||
@@ -78,12 +77,13 @@ const post = async (
   data?: [] | {},
   config?: AxiosRequestConfig
 ) => {
-  // await axios.get(API_CSRF_URL);
+  // console.log(url)
+  await axios.get("https://b-tickets-app.com/api/csrf-token");
   return await axiosInstance.post(url, data, config);
 };
 
 const put = async (url: string, data: [] | {}, config?: AxiosRequestConfig) => {
-  await axios.get(API_CSRF_URL);
+    await axios.get("https://b-tickets-app.com/api/csrf-token");
   return await axiosInstance.put(url, data, config);
 };
 
@@ -92,12 +92,12 @@ const patch = async (
   data: [] | {},
   config?: AxiosRequestConfig
 ) => {
-  await axios.get(API_CSRF_URL);
+    await axios.get("https://b-tickets-app.com/api/csrf-token");
   return await axiosInstance.patch(url, data, config);
 };
 
 const _delete = async (url: string, config?: AxiosRequestConfig) => {
-  await axios.get(API_CSRF_URL);
+    await axios.get("https://b-tickets-app.com/api/csrf-token");
   return await axiosInstance.delete(url, config);
 };
 

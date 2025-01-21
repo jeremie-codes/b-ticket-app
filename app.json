@@ -1,8 +1,8 @@
 {
   "expo": {
     "name": "B-TICKETS",
-    "slug": "b-tickets",
-    "owner": "willyam",
+    "slug": "b-ticket-app",
+    "owner": "mastagate",
     "version": "0.1.2",
     "orientation": "portrait",
     "icon": "./src/assets/icon.png",
@@ -38,7 +38,7 @@
     "description": "Un groupe qui œuvre dans le Marketing digital et vente de billets",
     "extra": {
       "eas": {
-        "projectId": "d03906e3-1851-4c52-a631-53573ddd2825"
+        "projectId": "b0f8b8e1-88e9-4684-a377-bd58c997bb70"
       }
     },
     "plugins": [

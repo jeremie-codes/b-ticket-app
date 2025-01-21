@@ -38,7 +38,6 @@ export const AppForm: React.FC<AppFormType> = (props: AppFormType) => {
   const { control, reset, handleSubmit, formState: { errors, isSubmitSuccessful, isSubmitting } } = useForm({ mode: "onSubmit", defaultValues});
 
   const onHandleSubmit = async (data: any) => {
-    console.log('data mutation');
     
     if (mutation) {
       await mutation(data);

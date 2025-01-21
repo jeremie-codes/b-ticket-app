@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { Fragment, useContext, useEffect } from "react";
-import { Image, ScrollView, StyleSheet, View } from "react-native";
+import { Image, ScrollView, StyleSheet, View, Platform } from "react-native";
 import { AppLink, AppSeparator } from "src/components";
 import AppWrapper from "src/components/AppWrapper";
 import { ShowEventImage } from "src/components/events/ShowEventImage";
@@ -9,6 +9,8 @@ import { AppIcon } from "src/components/ui/icons";
 import FallbackFetchError from "src/components/ui/layouts/FallbackFetchError";
 import { AppTextBody } from "src/components/ui/texts/AppTextBody";
 import { SIZES } from "src/constants/App";
+import { SvgUri } from 'react-native-svg';
+
 import {
   horizontalScale,
   moderateScale,
@@ -191,7 +193,11 @@ export const TicketScreen: React.FC<TicketScreenProps> = ({
                           uri: qrCodeFilePath,
                         }}
                         style={styles.barcodeImage}
+                        resizeMode="contain"
                       />
+                      {/* <SvgUri width={'100%'} height={horizontalScale(350)}
+                        style={styles.barcodeImage}
+                        uri={qrCodeFilePath!} /> */}
                     </View>
                   </SectionShowEvent>
                 </View>
@@ -208,6 +214,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: defaultTheme.PRIMARY_BACKGROUND_COLOR,
     // position: "absolute",
+    paddingTop: Platform.OS === "android" ? verticalScale(30) : 0,
     paddingBottom: verticalScale(10),
   },
   customWrapper: {
@@ -249,5 +256,6 @@ const styles = StyleSheet.create({
   barcodeImage: {
     height: horizontalScale(350),
     width: "100%",
+    borderWidth: 1
   },
 });

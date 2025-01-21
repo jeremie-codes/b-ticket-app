@@ -7,6 +7,7 @@ import {
   ScrollView,
   StyleSheet,
   View,
+  Platform
 } from "react-native";
 import { AppLink } from "src/components";
 import { moderateScale, verticalScale } from "src/constants/Metric";
@@ -85,6 +86,7 @@ export const AccountScreen = ({ navigation }: AccountScreenProps) => {
   const { mutateAsync: onUpdateProfile } = useMutation({
     mutationFn: async (data: any) => await User.storeProfile(data, true),
     onMutate: () => {
+      // console.log('ifikdkdkdk')
       setServerErrors(undefined);
       toggleLoading(true);
     },
@@ -320,6 +322,7 @@ export const AccountScreen = ({ navigation }: AccountScreenProps) => {
 const styles = StyleSheet.create({
   container: {
     //justifyContent: "space-between",
+    paddingTop: Platform.OS === "android" ? verticalScale(30) : 0,
     flexGrow: 1,
   },
 

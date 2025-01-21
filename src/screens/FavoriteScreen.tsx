@@ -1,4 +1,4 @@
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, Platform } from "react-native";
 import { HeaderTitle } from "src/components";
 import EmptyList from "src/components/ui/layouts/EmptyList";
 import { AppTextBody } from "src/components/ui/texts/AppTextBody";
@@ -143,6 +143,7 @@ const styles = StyleSheet.create({
   eventHeader: {
     // flex: 1,
     paddingBottom: verticalScale(15),
+    paddingTop: Platform.OS === "android" ? verticalScale(30) : 0,
   },
   navigatorRightButton: {
     backgroundColor: defaultTheme.PRIMARY_BACKGROUND_COLOR,

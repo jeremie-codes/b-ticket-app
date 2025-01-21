@@ -3,7 +3,7 @@ import React, { useContext, useState } from "react";
 import {
   PermissionStatus,
   useMediaLibraryPermissions,
-  MediaTypeOptions,
+  MediaType,
   launchImageLibraryAsync,
 } from "expo-image-picker";
 import {
@@ -46,6 +46,7 @@ const AccountProfilePicture: React.FC<IProps> = ({ user }: IProps) => {
   const { mutateAsync: onUpdateProfilePicture } = useMutation({
     mutationFn: async (data: any) => await User.storeProfilePicture(data, true),
     onMutate: () => {
+      // console.log('didididi')
       toggleLoading(true);
     },
     onSettled: (data) => {
@@ -119,7 +120,7 @@ const AccountProfilePicture: React.FC<IProps> = ({ user }: IProps) => {
     }
     // No permissions request is necessary for launching the image library
     let result = await launchImageLibraryAsync({
-      mediaTypes: MediaTypeOptions.Images,
+      mediaTypes: "images",
       quality: 0.5,
       aspect: [4, 3],
       allowsEditing: true,
@@ -136,6 +137,7 @@ const AccountProfilePicture: React.FC<IProps> = ({ user }: IProps) => {
         type: `image/${fileType}`,
       };
 
+      // console.log('image profil : ', newImage)
       setImage(newImage);
       await onUpdateProfilePicture(newImage);
     }
@@ -150,7 +152,8 @@ const AccountProfilePicture: React.FC<IProps> = ({ user }: IProps) => {
 
   return (
     <View style={styles.avatarContainer}>
-      <ClickableWrapper onPress={pickImage} style={styles.imageWrapper}>
+      {/* Photo de profile de l'utilisateur */}
+      {/* <ClickableWrapper onPress={pickImage} style={styles.imageWrapper}>
         {!image?.uri && !user?.profile?.picture ? (
           <Image
             source={
@@ -177,7 +180,7 @@ const AccountProfilePicture: React.FC<IProps> = ({ user }: IProps) => {
             color={defaultTheme.PRIMARY_TEXT_COLOR}
           />
         </View>
-      </ClickableWrapper>
+      </ClickableWrapper> */}
       <View style={styles.profileTextContainer}>
         <View>
           <AppTextBody style={styles.nameText}>

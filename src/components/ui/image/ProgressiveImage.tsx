@@ -28,10 +28,6 @@ export const ProgressiveImage = ({
     }).start();
   };
 
-  useEffect(() => {
-    console.log(thumbnailSource)
-  })
-
   const onImageLoad = () => {
     Animated.timing(imageAnimated, {
       toValue: 1,

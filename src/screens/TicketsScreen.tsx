@@ -1,4 +1,4 @@
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, Platform } from "react-native";
 import { AppLink, HeaderTitle } from "src/components";
 import AppWrapper from "src/components/AppWrapper";
 import {
@@ -116,7 +116,7 @@ export const TicketsScreen: React.FC<TicketsScreenProps> = ({
   };
 
   return (
-    <AppWrapper>
+    <AppWrapper style={{ paddingTop: Platform.OS === "android" ? verticalScale(30) : 0 }}>
       <HeaderTitle>Mes billets</HeaderTitle>
 
       {dataResponse.success && (

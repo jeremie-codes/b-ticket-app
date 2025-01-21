@@ -284,6 +284,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: defaultTheme.PRIMARY_BACKGROUND_COLOR,
     // position: "absolute",
+    paddingTop: Platform.OS === "android" ? verticalScale(30) : 0,
     paddingBottom: verticalScale(10),
   },
 

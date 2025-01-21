@@ -90,6 +90,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: defaultTheme.PRIMARY_BACKGROUND_COLOR,
-    paddingTop: Platform.OS === "android" ? verticalScale(30) : 0,
+    paddingTop: Platform.OS === "android" ? verticalScale(0) : 0,
   },
 });

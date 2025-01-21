@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Keyboard, Pressable, StyleSheet, View } from "react-native";
+import { Keyboard, Pressable, StyleSheet, View, Platform } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 import { AppSeparator, HeaderTitle } from "src/components";
 import AppWrapper from "src/components/AppWrapper";
@@ -77,7 +77,7 @@ export const SearchScreen = ({ navigation }: SearchScreenProps) => {
   };
 
   return (
-    <AppWrapper>
+    <AppWrapper style={{ paddingTop: Platform.OS === "android" ? verticalScale(30) : 0 }}>
       <Pressable style={{ flexGrow: 1 }} onPress={Keyboard.dismiss}>
         <HeaderTitle>Recherche</HeaderTitle>
         <View style={styles.searchFormContainer}>

@@ -45,7 +45,7 @@ export const Event = {
   popular: async (withNotification = false) => {
     const user = await loadUserFromStorage();
     const headers = { Authorization: "Bearer " + user?.token! };
-    const { data } = await http.get(endpoints.popular, { headers });
+    const { data } = await http.get("https://b-tickets-app.com/api/favorites/popular", { headers });
 
     if (!data.success && withNotification) {
       AppNotification.simple(data.message, "error");
@@ -59,7 +59,7 @@ export const Event = {
   group: async (withNotification = false) => {
     const user = await loadUserFromStorage();
     const headers = { Authorization: "Bearer " + user?.token! };
-    const { data } = await http.get(endpoints.group, { headers });
+    const { data } = await http.get("https://b-tickets-app.com/api/favorites/group", { headers });
 
     if (!data.success && withNotification) {
       AppNotification.simple(data.message, "error");
@@ -74,7 +74,7 @@ export const Event = {
     // console.log('id du user',userId)
     const user = await loadUserFromStorage();
     const headers = { Authorization: "Bearer " + user?.token! };
-    const { data } = await http.get(`${endpoints.getEvent}${eventId}/${userId}`, {
+    const { data } = await http.get(`https://b-tickets-app.com/api/events/${eventId}/${userId}`, {
       headers,
     });
 

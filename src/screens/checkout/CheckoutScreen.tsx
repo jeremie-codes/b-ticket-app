@@ -105,6 +105,7 @@ export const CheckoutScreen: React.FC<CheckoutScreenProps> = ({
           currency: price?.currency?.toUpperCase(),
           event_id: event.id,
           quantity: quantity,
+          total: apiAmount(parseFloat(price?.amount!) * quantity)
         },
         true
       ),
@@ -113,6 +114,7 @@ export const CheckoutScreen: React.FC<CheckoutScreenProps> = ({
       toggleLoading(true);
     },
     onSettled: (data) => {
+      console.log(data)
       if (data && data.success) {
         toggleLoading(false);
         handlePaymentSuccessPress(data);
@@ -128,6 +130,7 @@ export const CheckoutScreen: React.FC<CheckoutScreenProps> = ({
       if (!data.success && data.errors) {
         setServerErrors(createServerErrorArray(data.errors));
         toggleLoading(false);
+        handleBackPage();
         return;
       }
     },
@@ -135,6 +138,10 @@ export const CheckoutScreen: React.FC<CheckoutScreenProps> = ({
 
   const handleProfilePress = () => {
     navigation.navigate("Account");
+  };
+
+  const handleBackPage = () => {
+    navigation.navigate("Home");
   };
 
   const handleChangePaymentMethod = (method: PaymentMethodType) => {

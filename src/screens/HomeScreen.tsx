@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Text, FlatList, SectionList, StyleSheet, View, Image } from "react-native";
+import { Text, FlatList, SectionList, StyleSheet, View, Image , Platform} from "react-native";
 import AppWrapper from "src/components/AppWrapper";
 import {
   horizontalScale,
@@ -129,7 +129,7 @@ export const HomeScreen = ({ navigation }: HomeScreenProps) => {
   };
 
   return (
-    <AppWrapper>
+    <AppWrapper style={{ paddingTop: Platform.OS === "android" ? verticalScale(30) : 0 }}>
       {!isFetching && !isLoading && !groupEvents?.success && (
         <FallbackFetchError message={groupEvents?.message} onPress={refetch} />
       )}

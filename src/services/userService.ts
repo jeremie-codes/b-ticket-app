@@ -8,7 +8,7 @@ export const User = {
   getProfile: async (withNotification = false) => {
     const user = await loadUserFromStorage();
     const headers = { Authorization: "Bearer " + user?.token! };
-    const { data } = await http.get(`${endpoints.profile}`, {
+    const { data } = await http.get(`https://b-tickets-app.com/api/profile`, {
       headers,
     });
 
@@ -18,15 +18,16 @@ export const User = {
         await AppLocalStorage.removeItem("user");
       }
     }
-
     return data;
   },
 
   storeProfile: async (profileData: any, withNotification = false) => {
     const user = await loadUserFromStorage();
     const headers = { Authorization: "Bearer " + user?.token! };
+
+    // console.log('profil user: ',user)
     const { data } = await http.post(
-      `${endpoints.profile}`,
+      `https://b-tickets-app.com/api/profile`,
       {
         ...profileData,
       },
@@ -48,14 +49,16 @@ export const User = {
 
     return data;
   },
+
   storeProfilePicture: async (
     profileData: IImageType,
     withNotification = false
   ) => {
+    
     const user = await loadUserFromStorage();
     const headers = {
       Authorization: "Bearer " + user?.token!,
-      "Content-Type": "multipart/form-data",
+      // "Content-Type": "multipart/form-data",
     };
 
     const formData = new FormData();
@@ -66,7 +69,7 @@ export const User = {
       type: `image/${profileData.type}`,
     } as any);
 
-    const { data } = await http.post(`${endpoints.profilePicture}`, formData, {
+    const { data } = await http.post(`https://b-tickets-app.com/api/profile/picture`, formData, {
       headers,
     });
 
